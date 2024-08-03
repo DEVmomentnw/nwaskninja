@@ -1,0 +1,42 @@
+/* Define a altura mínima para o corpo e usa flexbox para centralizar o conteúdo */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+/* Container que segura o botão */
+#container {
+    position: relative;
+}
+
+/* Estiliza o botão */
+#myButton {
+    display: none; /* Inicialmente escondido */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Animação para tornar o botão visível após 20 segundos */
+@keyframes showButton {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Adiciona a animação após um atraso */
+#container::after {
+    content: "";
+    display: block;
+    animation: showButton 0.5s ease forwards;
+    animation-delay: 20s; /* Espera 20 segundos antes de iniciar a animação */
+}
